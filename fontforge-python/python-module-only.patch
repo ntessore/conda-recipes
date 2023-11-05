@@ -1,0 +1,14 @@
+diff --git a/fontforge/CMakeLists.txt b/fontforge/CMakeLists.txt
+index 9a052f3..3ead725 100644
+--- a/fontforge/CMakeLists.txt
++++ b/fontforge/CMakeLists.txt
+@@ -259,7 +259,8 @@ if(ENABLE_LIBREADLINE_RESULT)
+   target_link_libraries(fontforge PUBLIC Readline::Readline)
+ endif()
+ if(ENABLE_PYTHON_SCRIPTING_RESULT)
+-  target_link_libraries(fontforge PRIVATE Python3::Python)
++  target_link_libraries(fontforge PRIVATE Python3::Module)
++  set_target_properties(fontforge PROPERTIES OUTPUT_NAME "fontforge-python" PREFIX "")
+ endif()
+ if(ENABLE_WOFF2_RESULT)
+   target_link_libraries(fontforge PRIVATE WOFF2::WOFF2)

@@ -1,0 +1,42 @@
+package:
+  name: fontforge-python
+  version: 2023.01.01
+
+source:
+  url: https://github.com/fontforge/fontforge/releases/download/20230101/fontforge-20230101.tar.xz
+  sha256: ca82ec4c060c4dda70ace5478a41b5e7b95eb035fe1c4cf85c48f996d35c60f8
+  patches:
+    - python-module-only.patch
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+  host:
+    - freetype
+    - gettext
+    - giflib
+    - glib
+    - libjpeg-turbo
+    - libiconv
+    - libpng
+    - libspiro
+    - libtiff
+    - libxml2
+    - pkg-config
+    - python
+    - readline
+    - zlib
+  run:
+    - python
+
+about:
+  home: http://fontforge.github.io/
+  license: GPL-3.0+
+  license_file: LICENSE
+  summary: Free (libre) font editor
+  description: |
+    This package installs the FontForge Python extension.  It does not install
+    the FontForge GUI or CLI.
